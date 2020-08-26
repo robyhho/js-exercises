@@ -1,4 +1,5 @@
 # js-exercises
-My JavaScript exercise collection 
-Just a collection of my personal exercises, whilst I am learning JavaScript.
+My JavaScript exercise collection: <br>
+A collection of my personal exercises, whilst I am learning JavaScript.
+To look back on in the future, and a record of what I've achieved so far.
 
