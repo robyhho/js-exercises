@@ -1,0 +1,178 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+:root {
+  --cell-size: 20vw;
+  --mark-size: calc(var(--cell-size) * 0.9);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  background-color: powderblue;
+  align-items: center;
+}
+
+.main-content {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Winner results popup */
+.finish {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+  width: 80%;
+  position: absolute;
+  top: 10%;
+  z-index: 1;
+  display: none;
+  align-items: center;
+  padding: 5rem 0;
+}
+
+.finish p {
+  font-size: 2rem;
+}
+
+.winner {
+  color: black;
+  font-size: 4rem;
+  font-weight: bolder;
+  padding-top: 0;
+}
+
+.hide {
+  display: flex;
+  justify-content: center;
+}
+.play-btn {
+  background-color: powderblue;
+  border: 1px solid gainsboro;
+  padding: 1rem 2rem;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.play-btn:hover {
+  transform: scale(1.1);
+  border: 1px solid black;
+}
+
+/* Main section styles */
+.title {
+  font-size: 2rem;
+  padding: 1rem;
+  color: bisque;
+  text-align: center;
+}
+
+/* Board Styles */
+.board {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1rem;
+}
+
+.board-btn {
+  display: flex;
+  width: var(--cell-size);
+  height: var(--cell-size);
+  background-color: white;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  cursor: pointer;
+}
+
+.board-btn.x,
+.board-btn.o {
+  cursor: not-allowed;
+}
+
+.board-btn.x::before,
+.board-btn.x::after,
+.board-btn.o::before,
+.board-btn.o::after {
+  background-color: black;
+}
+
+.board.x .board-btn:not(.x):not(.o):hover::before,
+.board.x .board-btn:not(.x):not(.o):hover::after,
+.board.o .board-btn:not(.x):not(.o):hover::before,
+.board.o .board-btn:not(.x):not(.o):hover::after {
+  background-color: gainsboro;
+}
+
+.board-btn.x::before,
+.board-btn.x::after,
+.board.x .board-btn:not(.x):not(.o):hover::before,
+.board.x .board-btn:not(.x):not(.o):hover::after {
+  content: "";
+  width: calc(var(--mark-size) * 0.15);
+  height: var(--mark-size);
+
+  position: absolute;
+}
+
+.board-btn.x::before,
+.board.x .board-btn:not(.x):not(.o):hover::before {
+  transform: rotate(45deg);
+}
+
+.board-btn.x::after,
+.board.x .board-btn:not(.x):not(.o):hover::after {
+  transform: rotate(-45deg);
+}
+
+.board-btn.o::before,
+.board-btn.o::after,
+.board.o .board-btn:not(.x):not(.o):hover::before,
+.board.o .board-btn:not(.x):not(.o):hover::after {
+  content: "";
+  width: var(--mark-size);
+  height: var(--mark-size);
+  position: absolute;
+  border-radius: 50%;
+}
+
+.board-btn.o::before,
+.board.o .board-btn:not(.x):not(.o):hover::before {
+  width: var(--mark-size);
+  height: var(--mark-size);
+}
+
+.board-btn.o::after,
+.board.o .board-btn:not(.x):not(.o):hover::after {
+  width: calc(var(--mark-size) * 0.7);
+  height: calc(var(--mark-size) * 0.7);
+  background-color: white;
+}
+
+/* Restart Button styles */
+.restart {
+  width: 50%;
+  align-self: center;
+  padding: 1rem;
+  margin: 1rem;
+  border-radius: 20px;
+  border: 1px solid gainsboro;
+  color: black;
+}
+
+.restart:hover {
+  box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px,
+    rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
+}
+
+/* Show Styles */
+.finish.show {
+  display: flex;
+}
