@@ -1,0 +1,50 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  font-family: "Courgette", cursive;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #f0eddd;
+  color: #373a3b;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 80%;
+  margin: auto;
+}
+
+.title {
+  padding-top: 3rem;
+}
+
+.description {
+  padding-bottom: 2rem;
+}
+
+.description,
+.opening-hours {
+  color: #555858;
+  opacity: 0.9;
+}
+
+.opening-times,
+.location {
+  padding: 2rem;
+}
+
+.opening-hours {
+  display: flex;
+}
+
+.location {
+  text-align: left;
+}
